@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="gifs/fevicon.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Talking Bot</title>
+    </head>
+    <body>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>How to use!</strong><br>
+            Click on the Blue Circle and say <strong>Hello, How are you</strong> or some greeting like <strong>Good
+            Morning</strong> to talk with the bot.<br>
+            You can give him some tasks like <strong>Open Calculator, Open Google, Open WhatsApp</strong> etc...<br>
+            Special Mentions... Try <strong>Play Music</strong> to see something Cool.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div id="preloader"></div>
+        <img src="gifs/1.gif" id="main">
+        <img src="gifs/2.gif" id="main-back" style="visibility: hidden">
+        <img src="gifs/m.gif" id="main-back-back" style="visibility: hidden">
+        <div id="robot">
+            <img src="robos/h.gif" class="robo-gif" style="display: none;">
+        </div>
+        <audio src="audios/Shape of You.mp3" id="music"></audio>
+        <script src="script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,172 @@
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-direction: column;
+    background: black;
+}
+
+#preloader {
+    background: #0c0c0c url(gifs/preloader.gif) no-repeat center center;
+    background-size: 40%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    margin-top: -4%;
+}
+
+.alert {
+    position: absolute;
+    top: 2%;
+    z-index: 1;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: #00bcd4;
+}
+
+strong{
+    color: skyblue;
+}
+
+#main {
+    position: relative;
+    transform: scale(0.5);
+    border-radius: 100%;
+    top: 61.6%;
+    transition: 1s;
+}
+
+.main-music {
+    top: 33% !important;
+}
+
+.main-back-music {
+    bottom: 24.5% !important;
+}
+
+#main-back {
+    position: relative;
+    z-index: -1;
+    border-radius: 100%;
+    bottom: -4.1%;
+    transform: scale(0.667);
+    transition: 1s;
+}
+
+#main-back-back {
+    position: relative;
+    z-index: -20;
+    bottom: 89%;
+    transform: scale(1.5);
+}
+
+#robot {
+    position: absolute;
+    z-index: -10;
+    bottom: 4%;
+    transform: scale(0.6);
+    height: 400px;
+}
+
+.robo-gif {
+    animation: robo linear 90s infinite;
+}
+
+@keyframes robo {
+    0% {
+        content: url("robos/h.gif");
+    }
+
+    11% {
+        content: url("robos/6.gif");
+    }
+
+    12% {
+        content: url("robos/10.gif");
+    }
+
+    24% {
+        content: url("robos/9.gif");
+    }
+
+    24.2% {
+        content: url("robos/1.gif");
+    }
+
+    27% {
+        content: url("robos/c.gif");
+    }
+
+    38% {
+        content: url("robos/4.gif");
+    }
+
+    40% {
+        content: url("robos/a.gif");
+    }
+
+    48% {
+        content: url("robos/3.gif");
+    }
+
+    50% {
+        content: url("robos/d.gif");
+    }
+
+    58% {
+        content: url("robos/8.gif");
+    }
+
+    60% {
+        content: url("robos/b.gif");
+    }
+
+    66% {
+        content: url("robos/2.gif");
+    }
+
+    72% {
+        content: url("robos/i.gif");
+    }
+
+    78% {
+        content: url("robos/5.gif");
+    }
+
+    86% {
+        content: url("robos/g.gif");
+    }
+
+    88% {
+        content: url("robos/7.gif");
+    }
+
+    96% {
+        content: url("robos/f.gif");
+    }
+
+    100% {
+        content: url("robos/e.gif");
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #main-back {
+        bottom: -11.1%;
+    }
+
+    .main-music {
+        top: 26% !important;
+    }
+
+    #main-back-back {
+        bottom: 81%;
+    }
+
+    #preloader {
+        background-size: 80%;
+    }
+}
