@@ -211,7 +211,7 @@ strong{
     }
 
     #robot {
-        transform: scale(0.5);
+        transform: scale(0.6);
     }
 }
 
@@ -229,6 +229,6 @@ strong{
     }
 
     #robot {
-        transform: scale(0.4);
+        transform: scale(0.5);
     }
 }
