@@ -191,6 +191,10 @@ strong{
     .main-back-back-img{
         height: 75%;
     }
+
+    .alert{
+        width: 90%;
+    }
 }
 
 @media only screen and (max-width: 500px) {
