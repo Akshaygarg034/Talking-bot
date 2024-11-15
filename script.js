@@ -1,11 +1,69 @@
+const assets = [
+    "audios/a.mp3",
+    "audios/b.mp3",
+    "audios/c.mp3",
+    "audios/Shape of You.mp3",
+    "robos/1.gif",
+    "robos/2.gif",
+    "robos/3.gif",
+    "robos/4.gif",
+    "robos/5.gif",
+    "robos/7.gif",
+    "robos/8.gif",
+    "robos/9.gif",
+    "robos/10.gif",
+    "robos/a.gif",
+    "robos/b.gif",
+    "robos/c.gif",
+    "robos/d.gif",
+    "robos/e.gif",
+    "robos/f.gif",
+    "robos/g.gif",
+    "robos/h.gif",
+    "robos/i.gif",
+];
+
+function preloadAssets(assets) {
+    const promises = assets.map(asset => {
+        return new Promise((resolve, reject) => {
+            if (asset.endsWith('.gif') || asset.endsWith('.jpg') || asset.endsWith('.png')) {
+                // Preload images
+                const img = new Image();
+                img.src = asset;
+                img.onload = resolve;
+                img.onerror = reject;
+            } else if (asset.endsWith('.mp3')) {
+                // Preload audio
+                const audio = new Audio();
+                audio.src = asset;
+                audio.onloadeddata = resolve;
+                audio.onerror = reject;
+            } else {
+                resolve();
+            }
+        });
+    });
+
+    return Promise.all(promises);
+}
+
+
 var loader = document.getElementById("preloader");
-window.addEventListener("load", function () {
-    loader.style.display = "none";
+window.addEventListener("load", ()=> {
+    preloadAssets(assets)
+    .then(() => {
+        loader.style.display = "none";
+    })
+    .catch(error => {
+        loader.style.display = "none";
+    });
 })
 
-const main = document.querySelector('#main');
-const main_back = document.querySelector('#main-back');
-const main_back_back = document.querySelector('#main-back-back');
+const mainBox = document.querySelector('.main-box');
+const subMainBox = document.querySelector('.sub-main-box');
+const main = document.querySelector('.main-img');
+const main_back = document.querySelector('.main-back-img');
+const main_back_back = document.querySelector('.main-back-back-img');
 const robo_gif = document.querySelector('.robo-gif');
 const music = document.querySelector('#music');
 
@@ -13,9 +71,7 @@ var music_collection = ["audios/a.mp3", "audios/b.mp3", "audios/c.mp3"]
 var num = Math.floor(Math.random() * music_collection.length)
 var random_music = new Audio(music_collection[num]);
 
-var meme_collection = ['memes/Abeh Tu thoda sa bahan ka loda hai kya.mp3', 'memes/Chus Mera Lauda.mp3', 'memes/Lode Ho tum wo bhi Tede Wale.mp3', 'memes/Nahi.mp3', 'memes/Tatte chahiye na.mp3', 'memes/Yahi Patak Ke Chod Denge Chal Nikal Madharchod.mp3', 'memes/Ye to very nice bund hai.mp3']
 var num1 = Math.floor(Math.random() * music_collection.length)
-var random_meme = new Audio(meme_collection[num]);
 
 const recognition = new webkitSpeechRecognition();
 recognition.continuous = true;
@@ -99,8 +155,7 @@ recognition.onresult = (e) => {
     }
     else if (transcript === "play music") {
         recognition.stop();
-        main.classList.add('main-music');
-        main_back.classList.add('main-back-music');
+        subMainBox.classList.add('main-music');
         main_back.style.visibility = 'visible';
         robo_gif.style.display = 'block';
 
@@ -111,8 +166,7 @@ recognition.onresult = (e) => {
     }
     else if (transcript === "stop music" || transcript === "stop") {
         recognition.stop();
-        main.classList.remove('main-music');
-        main_back.classList.remove('main-back-music')
+        subMainBox.classList.remove('main-music');
         main_back.style.visibility = 'hidden'
 
         music.pause();
@@ -120,16 +174,12 @@ recognition.onresult = (e) => {
         random_music.pause();
         random_music.currentTime = 0;
 
-        random_meme.pause();
-        random_meme.currentTime = 0;
-
         robo_gif.style.display = 'none';
         main_back_back.style.visibility = 'hidden';
     }
     else if (transcript === "play random music") {
         recognition.stop();
-        main.classList.add('main-music');
-        main_back.classList.add('main-back-music');
+        subMainBox.classList.add('main-music');
         main_back.style.visibility = 'visible';
         robo_gif.style.display = 'block';
         setTimeout(() => {
@@ -178,13 +228,6 @@ recognition.onresult = (e) => {
         synth.speak(utter);
         main_back.style.visibility = 'visible';
         window.open("https://www.youtube.com/");
-    }
-    else if (transcript === "show me some latest news") {
-        recognition.stop();
-        utter.text = "Showing top 20 latest news by NDTV!";
-        synth.speak(utter);
-        main_back.style.visibility = 'visible';
-        window.open("News Website/index.html");
     }
     else if (transcript === "open my notes") {
         recognition.stop();

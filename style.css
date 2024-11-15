@@ -1,78 +1,100 @@
 body {
+    background: black;
+    position: absolute;
+    height: 100%;
     width: 100%;
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    flex-direction: column;
-    background: black;
 }
 
 #preloader {
+    position: absolute;
+    top: 0;
+    left: 0;
     background: #0c0c0c url(gifs/preloader.gif) no-repeat center center;
     background-size: 40%;
-    height: 100vh;
+    height: 100%;
     width: 100%;
-    position: fixed;
     z-index: 100;
-    margin-top: -4%;
+}
+
+.main-box{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.sub-main-box{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    transition: top 1s ease;
+}
+
+.main-img{
+    position: absolute;
+    z-index: 2;
+    height: 28%;
+    border-radius: 50%;
+}
+
+.main-back-img{
+    position: absolute;
+    z-index: 1;
+    height: 41%;
+    border-radius: 50%;
+}
+
+.main-back-back-img{
+    position: absolute;
+    height: 100%;
+}
+
+.alert-box{
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .alert {
     position: absolute;
-    top: 2%;
-    z-index: 1;
     background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
     color: #00bcd4;
+    margin: 0px auto;
+    width: 60%;
+    top: 1em;
+    z-index: 10;
 }
 
 strong{
     color: skyblue;
 }
 
-#main {
-    position: relative;
-    transform: scale(0.5);
-    border-radius: 100%;
-    top: 61.6%;
-    transition: 1s;
-}
-
-.main-music {
-    top: 32% !important;
-}
-
-.main-back-music {
-    bottom: 24.5% !important;
-}
-
-#main-back {
-    position: relative;
-    z-index: -1;
-    border-radius: 100%;
-    bottom: -4.1%;
-    transform: scale(0.667);
-    transition: 1s;
-}
-
-#main-back-back {
-    position: relative;
-    z-index: -20;
-    bottom: 89%;
-    transform: scale(1.5);
-}
-
 #robot {
     position: absolute;
-    z-index: -10;
-    bottom: 4%;
+    z-index: 10;
+    bottom: 0;
     transform: scale(0.6);
     height: 400px;
 }
 
 .robo-gif {
     animation: robo linear 90s infinite;
+}
+
+.main-music{
+    top: -35%;
 }
 
 @keyframes robo {
@@ -153,20 +175,56 @@ strong{
     }
 }
 
-@media only screen and (max-width: 500px) {
-    #main-back {
-        bottom: -11.1%;
-    }
-
-    .main-music {
-        top: 26% !important;
-    }
-
-    #main-back-back {
-        bottom: 81%;
-    }
-
+@media only screen and (max-width: 660px) {
     #preloader {
         background-size: 80%;
+    }
+
+    .main-img{
+        height: 19%;
+    }
+    
+    .main-back-img{
+        height: 29%;
+    }
+    
+    .main-back-back-img{
+        height: 75%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .main-img{
+        height: 17%;
+    }
+    
+    .main-back-img{
+        height: 25%;
+    }
+    
+    .main-back-back-img{
+        height: 62%;
+    }
+
+    #robot {
+        transform: scale(0.5);
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .main-img{
+        height: 15%;
+    }
+    
+    .main-back-img{
+        height: 21%;
+    }
+    
+    .main-back-back-img{
+        height: 47%;
+    }
+
+    #robot {
+        transform: scale(0.4);
     }
 }
